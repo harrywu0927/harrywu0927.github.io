@@ -2,9 +2,9 @@
 # Refer to the theme docs for more details about each of these parameters.
 # https://jpanther.github.io/congo/docs/getting-started/
 
-baseURL = "https://harrywu0927.github.io"
+baseURL = "https://harrywu0927.github.io/"
 defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = true
+defaultContentLanguageInSubdir = false
 
 enableRobotsTXT = true
 summaryLength = 0
