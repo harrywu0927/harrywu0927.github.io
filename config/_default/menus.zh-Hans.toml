@@ -16,13 +16,13 @@
   weight = 10
 
 [[main]]
-  name = "Categories"
-  pageRef = "categories"
+  name = "画廊"
+  pageRef = "gallery"
   weight = 20
 
 [[main]]
-  name = "Tags"
-  pageRef = "tags"
+  name = "关于"
+  pageRef = "about"
   weight = 30
 
 [[main]]

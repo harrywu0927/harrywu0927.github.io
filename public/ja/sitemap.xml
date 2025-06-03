@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+    
+      <url>
+            <loc>http://localhost:1313/ja/about/</loc>
+            <lastmod>2025-06-03T00:00:00+00:00</lastmod>
+            <xhtml:link
+              rel="alternate"
+              hreflang="en"
+              href="http://localhost:1313/en/about/"
+              />
+            <xhtml:link
+              rel="alternate"
+              hreflang="zh-hans"
+              href="http://localhost:1313/zh-hans/about/"
+              />
+            <xhtml:link
+              rel="alternate"
+              hreflang="ja"
+              href="http://localhost:1313/ja/about/"
+              />
+          </url>
+    
+  
+    
+      <url>
+            <loc>http://localhost:1313/ja/</loc>
+            <lastmod>2025-06-03T00:00:00+00:00</lastmod>
+            <xhtml:link
+              rel="alternate"
+              hreflang="en"
+              href="http://localhost:1313/en/"
+              />
+            <xhtml:link
+              rel="alternate"
+              hreflang="zh-hans"
+              href="http://localhost:1313/zh-hans/"
+              />
+            <xhtml:link
+              rel="alternate"
+              hreflang="ja"
+              href="http://localhost:1313/ja/"
+              />
+          </url>
+    
+  
+    
+      <url>
+            <loc>http://localhost:1313/ja/posts/hello-world/</loc>
+            <lastmod>2025-05-26T13:05:54+08:00</lastmod>
+            <xhtml:link
+              rel="alternate"
+              hreflang="en"
+              href="http://localhost:1313/en/posts/hello-world/"
+              />
+            <xhtml:link
+              rel="alternate"
+              hreflang="zh-hans"
+              href="http://localhost:1313/zh-hans/posts/hello-world/"
+              />
+            <xhtml:link
+              rel="alternate"
+              hreflang="ja"
+              href="http://localhost:1313/ja/posts/hello-world/"
+              />
+          </url>
+    
+  
+    
+      <url>
+            <loc>http://localhost:1313/ja/posts/</loc>
+            <lastmod>2025-05-26T13:05:54+08:00</lastmod>
+            <xhtml:link
+              rel="alternate"
+              hreflang="en"
+              href="http://localhost:1313/en/posts/"
+              />
+            <xhtml:link
+              rel="alternate"
+              hreflang="zh-hans"
+              href="http://localhost:1313/zh-hans/posts/"
+              />
+            <xhtml:link
+              rel="alternate"
+              hreflang="ja"
+              href="http://localhost:1313/ja/posts/"
+              />
+          </url>
+    
+  
+    
+  
+    
+  
+</urlset>
