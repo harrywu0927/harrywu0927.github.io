@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Congo</title>
-    <link>http://localhost:1313/en/posts/</link>
+    <link>https://harrywu0927.github.io/en/posts/</link>
     <description>Recent content in Posts on Congo</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 26 May 2025 13:05:54 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/en/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://harrywu0927.github.io/en/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello World</title>
-      <link>http://localhost:1313/en/posts/hello-world/</link>
+      <link>https://harrywu0927.github.io/en/posts/hello-world/</link>
       <pubDate>Mon, 26 May 2025 13:05:54 +0800</pubDate>
-      <guid>http://localhost:1313/en/posts/hello-world/</guid>
+      <guid>https://harrywu0927.github.io/en/posts/hello-world/</guid>
       <description></description>
     </item>
   </channel>

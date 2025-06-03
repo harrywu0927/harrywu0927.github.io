@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Congo</title>
-    <link>http://localhost:1313/zh-hans/categories/</link>
+    <link>https://harrywu0927.github.io/zh-hans/categories/</link>
     <description>Recent content in Categories on Congo</description>
     <generator>Hugo</generator>
     <language>zh-Hans</language>
-    <atom:link href="http://localhost:1313/zh-hans/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://harrywu0927.github.io/zh-hans/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
