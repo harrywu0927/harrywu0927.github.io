@@ -6,7 +6,10 @@
   unsafe = true
 
 [highlight]
-  noClasses = false
+    noClasses = false
+    style = "dracula"   # 你可以选其他内置样式，如 "dracula"、"github"、"solarized-dark"
+    lineNos = false      # 是否显示行号
+
 
 [tableOfContents]
   startLevel = 2

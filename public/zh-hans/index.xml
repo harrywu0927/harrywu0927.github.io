@@ -6,20 +6,20 @@
     <description>Recent content on Congo</description>
     <generator>Hugo</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Tue, 03 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Jun 2025 15:39:33 +0800</lastBuildDate>
     <atom:link href="https://harrywu0927.github.io/zh-hans/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu 部署 Clash.Meta 并设置为系统服务与自动订阅更新</title>
+      <link>https://harrywu0927.github.io/zh-hans/posts/clash-setup/</link>
+      <pubDate>Tue, 10 Jun 2025 15:39:33 +0800</pubDate>
+      <guid>https://harrywu0927.github.io/zh-hans/posts/clash-setup/</guid>
+      <description></description>
+    </item>
     <item>
       <title></title>
       <link>https://harrywu0927.github.io/zh-hans/about/</link>
       <pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate>
       <guid>https://harrywu0927.github.io/zh-hans/about/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Hello World</title>
-      <link>https://harrywu0927.github.io/zh-hans/posts/hello-world/</link>
-      <pubDate>Mon, 26 May 2025 13:05:54 +0800</pubDate>
-      <guid>https://harrywu0927.github.io/zh-hans/posts/hello-world/</guid>
       <description></description>
     </item>
   </channel>

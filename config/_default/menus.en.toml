@@ -16,8 +16,8 @@
   weight = 10
 
 [[main]]
-  name = "Categories"
-  pageRef = "categories"
+  name = "Gallery"
+  pageRef = "gallery"
   weight = 20
 
 [[main]]
@@ -27,7 +27,7 @@
 
 [[main]]
   name = "GitHub"
-  url = "https://github.com/harrywu0927"
+  url = "https://github.com/harrywu0927/harrywu0927.github.io"
   weight = 40
   [main.params]
     icon = "github"
