@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Congo</title>
-    <link>http://localhost:1313/en/</link>
-    <description>Recent content on Congo</description>
+    <title>Haruru</title>
+    <link>https://harrywu0927.github.io/en/</link>
+    <description>Recent content on Haruru</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 03 Jun 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Jun 2025 15:39:33 +0800</lastBuildDate>
+    <atom:link href="https://harrywu0927.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title></title>
-      <link>http://localhost:1313/en/about/</link>
-      <pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/about/</guid>
+      <title>Deploying Clash.Meta on Ubuntu as a System Service with Auto Subscription Updates</title>
+      <link>https://harrywu0927.github.io/en/posts/clash-setup/</link>
+      <pubDate>Tue, 10 Jun 2025 15:39:33 +0800</pubDate>
+      <guid>https://harrywu0927.github.io/en/posts/clash-setup/</guid>
       <description></description>
     </item>
     <item>
-      <title>Hello World</title>
-      <link>http://localhost:1313/en/posts/hello-world/</link>
-      <pubDate>Mon, 26 May 2025 13:05:54 +0800</pubDate>
-      <guid>http://localhost:1313/en/posts/hello-world/</guid>
+      <title></title>
+      <link>https://harrywu0927.github.io/en/about/</link>
+      <pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://harrywu0927.github.io/en/about/</guid>
       <description></description>
     </item>
   </channel>

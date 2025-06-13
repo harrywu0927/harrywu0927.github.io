@@ -17,8 +17,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#FFFFFF" />
   
-  <title>Ubuntu で Clash.Meta をデプロイし、システムサービス化とサブスクリプション自動更新を設定する &middot; Congo</title>
-    <meta name="title" content="Ubuntu で Clash.Meta をデプロイし、システムサービス化とサブスクリプション自動更新を設定する &middot; Congo" />
+  <title>Ubuntu で Clash.Meta をデプロイし、システムサービス化とサブスクリプション自動更新を設定する &middot; Haruru</title>
+    <meta name="title" content="Ubuntu で Clash.Meta をデプロイし、システムサービス化とサブスクリプション自動更新を設定する &middot; Haruru" />
   
   
   
@@ -98,7 +98,7 @@
   
   
   <meta property="og:url" content="https://harrywu0927.github.io/ja/posts/clash-setup/">
-  <meta property="og:site_name" content="Congo">
+  <meta property="og:site_name" content="Haruru">
   <meta property="og:title" content="Ubuntu で Clash.Meta をデプロイし、システムサービス化とサブスクリプション自動更新を設定する">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
@@ -124,7 +124,7 @@
     "url" : "https:\/\/harrywu0927.github.io\/ja\/posts\/clash-setup\/",
     "author" : {
       "@type": "Person",
-      "name": ""
+      "name": "Harry Wu"
     },
     "copyrightYear": "2025",
     "dateCreated": "2025-06-10T15:39:33\u002b08:00",
@@ -135,7 +135,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "275"
+    "wordCount": "427"
   }
   </script>
     
@@ -147,7 +147,7 @@
      {
        "@type": "ListItem",
        "item": "https://harrywu0927.github.io/ja/",
-       "name": "Congo",
+       "name": "Haruru",
        "position": 1
      },
      {
@@ -166,14 +166,14 @@
   </script>
 
   
-  
+  <meta name="author" content="Harry Wu" />
   
     
       <link href="https://github.com/harrywu0927" rel="me" />
     
       <link href="https://instagram.com/harrywu_0927" rel="me" />
     
-      <link href="https://linkedin.com/in/username" rel="me" />
+      <link href="https://linkedin.com/in/harrywu0927" rel="me" />
     
   
   
@@ -214,12 +214,6 @@
     
     <div class="z-40 flex flex-row items-center">
       
-  <a
-    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
-    rel="me"
-    href="/ja/"
-    >Congo</a
-  >
 
     </div>
     
@@ -409,7 +403,7 @@
                 <div class="flex flex-grow">
                   
                     <a
-                      href="/posts/clash-setup/"
+                      href="/en/posts/clash-setup/"
                       class="w-full py-1 pe-10 ps-2 decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
                       >English</a
                     >
@@ -457,7 +451,7 @@
                 <div class="flex flex-grow">
                   
                     <a
-                      href="/zh-hans/posts/clash-setup/"
+                      href="/posts/clash-setup/"
                       class="w-full py-1 pe-10 ps-2 decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
                       >简体中文</a
                     >
@@ -644,7 +638,7 @@
                 <div class="flex flex-grow">
                   
                     <a
-                      href="/posts/clash-setup/"
+                      href="/en/posts/clash-setup/"
                       class="w-full py-1 pe-10 ps-2 decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
                       >English</a
                     >
@@ -692,7 +686,7 @@
                 <div class="flex flex-grow">
                   
                     <a
-                      href="/zh-hans/posts/clash-setup/"
+                      href="/posts/clash-setup/"
                       class="w-full py-1 pe-10 ps-2 decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
                       >简体中文</a
                     >
@@ -736,7 +730,7 @@
     <a
       class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
       href="/ja/"
-      >Congo</a
+      >Haruru</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -801,7 +795,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-06-10 15:39:33 &#43;0800 CST">10 6月 2025</time><span class="px-2 text-primary-500">&middot;</span><span>275 文字</span><span class="px-2 text-primary-500">&middot;</span><span title="読むのに必要な時間">2 分</span>
+      <time datetime="2025-06-10 15:39:33 &#43;0800 CST">10 6月 2025</time><span class="px-2 text-primary-500">&middot;</span><span>427 文字</span><span class="px-2 text-primary-500">&middot;</span><span title="読むのに必要な時間">3 分</span>
     
 
     
@@ -859,6 +853,12 @@
       <ul>
         <li><a href="#更新スクリプト作成">更新スクリプト作成</a></li>
         <li><a href="#cron-に登録">Cron に登録</a></li>
+      </ul>
+    </li>
+    <li><a href="#web-ui-の設定">Web UI の設定</a>
+      <ul>
+        <li><a href="#configyaml-の編集">config.yaml の編集</a></li>
+        <li><a href="#自動更新サブスクリプションスクリプトの更新">自動更新サブスクリプションスクリプトの更新</a></li>
       </ul>
     </li>
   </ul>
@@ -970,22 +970,69 @@ https_proxy=&#34;http://127.0.0.1:7890&#34;
 </span></span><span class="line"><span class="cl"><span class="nv">BACKUP_FILE</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$CLASH_DIR</span><span class="s2">/config.yaml.bak&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nv">TMP_FILE</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$CLASH_DIR</span><span class="s2">/config.tmp.yaml&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">cp <span class="s2">&#34;</span><span class="nv">$CONFIG_FILE</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$BACKUP_FILE</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;設定をダウンロード中...&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="k">if</span> curl -fsSL <span class="s2">&#34;</span><span class="nv">$SUB_URL</span><span class="s2">&#34;</span> -o <span class="s2">&#34;</span><span class="nv">$TMP_FILE</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    cp <span class="s2">&#34;</span><span class="nv">$CONFIG_FILE</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$BACKUP_FILE</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl">    mv <span class="s2">&#34;</span><span class="nv">$TMP_FILE</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$CONFIG_FILE</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;更新成功、Clash を再起動します...&#34;</span>
 </span></span><span class="line"><span class="cl">    systemctl restart clash
 </span></span><span class="line"><span class="cl"><span class="k">else</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;ダウンロード失敗、旧設定を復元します&#34;</span>
-</span></span><span class="line"><span class="cl">    mv <span class="s2">&#34;</span><span class="nv">$BACKUP_FILE</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$CONFIG_FILE</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="k">fi</span>
 </span></span></code></pre></div><p>実行権限を付与：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo chmod +x /opt/clash/update-clash.sh
 </span></span></code></pre></div><h3 id="cron-に登録" class="relative group">Cron に登録 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#cron-%e3%81%ab%e7%99%bb%e9%8c%b2" aria-label="アンカー">#</a></span></h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo crontab -e
 </span></span></code></pre></div><p>以下を追加（毎日午前3時に更新）：</p>
 <pre tabindex="0"><code class="language-cron" data-lang="cron">0 3 * * * /opt/clash/update-clash.sh &gt;&gt; /opt/clash/update.log 2&gt;&amp;1
-</code></pre>
+</code></pre><h2 id="web-ui-の設定" class="relative group">Web UI の設定 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#web-ui-%e3%81%ae%e8%a8%ad%e5%ae%9a" aria-label="アンカー">#</a></span></h2><p>事前にビルドされた UI を直接取得し、現在のディレクトリ（/opt/clash/ui）に保存します:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/metacubex/metacubexd.git -b gh-pages ./ui
+</span></span></code></pre></div><h3 id="configyaml-の編集" class="relative group">config.yaml の編集 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#configyaml-%e3%81%ae%e7%b7%a8%e9%9b%86" aria-label="アンカー">#</a></span></h3><p><code>config.yaml</code> ファイルで、<code>external-ui</code> フィールドを編集します:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">external-controller</span><span class="p">:</span><span class="w"> </span><span class="m">127.0.0.1</span><span class="p">:</span><span class="m">9090</span><span class="w"> </span><span class="c"># ローカルネットワークへのアクセスを許可する場合は 0.0.0.0:9090 にバインド</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">external-ui</span><span class="p">:</span><span class="w"> </span><span class="l">ui</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l">「yourpassword」 </span><span class="w"> </span><span class="c"># 任意のパスワードを設定可能</span><span class="w">
+</span></span></span></code></pre></div><p>Clash を再起動：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl restart clash
+</span></span></code></pre></div><p>ブラウザでアクセス：http://localhost:9090/ui/</p>
+<p>UI の更新を取得：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo git -C /opt/clash/ui pull -r
+</span></span></code></pre></div><h3 id="自動更新サブスクリプションスクリプトの更新" class="relative group">自動更新サブスクリプションスクリプトの更新 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e8%87%aa%e5%8b%95%e6%9b%b4%e6%96%b0%e3%82%b5%e3%83%96%e3%82%b9%e3%82%af%e3%83%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3%e3%82%b9%e3%82%af%e3%83%aa%e3%83%97%e3%83%88%e3%81%ae%e6%9b%b4%e6%96%b0" aria-label="アンカー">#</a></span></h3><p>サブスクリプションを更新するたびに現在の <code>config.yaml</code> が上書きされるため、<code>update-clash.sh</code> に以下のコードを追加する必要があります：
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="nv">CLASH_DIR</span><span class="o">=</span><span class="s2">&#34;/opt/clash&#34;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="nv">SUB_URL</span><span class="o">=</span><span class="s2">&#34;[あなたのサブスクリプションリンク]&#34;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="nv">CONFIG_FILE</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$CLASH_DIR</span><span class="s2">/config.yaml&#34;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="nv">BACKUP_FILE</span><span class="o">=</span>「<span class="nv">$CLASH_DIR</span>/config.yaml.bak」
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="nv">TMP_FILE</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$CLASH_DIR</span><span class="s2">/config.tmp.yaml&#34;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line hl"><span class="ln"> 9</span><span class="cl"><span class="c1"># Web UI の更新を取得</span>
+</span></span><span class="line hl"><span class="ln">10</span><span class="cl">git -C /opt/clash/ui pull -r
+</span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="nb">echo</span> 「Clash 設定のサブスクリプションをダウンロード中...」
+</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="k">if</span> curl -fsSL 「<span class="nv">$SUB_URL</span>」 -o 「<span class="nv">$TMP_FILE</span>」<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="c1"># バックアップを作成</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    cp 「<span class="nv">$CONFIG_FILE</span>」 「<span class="nv">$BACKUP_FILE</span>」
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    mv 「<span class="nv">$TMP_FILE</span>」 「<span class="nv">$CONFIG_FILE</span>」
+</span></span><span class="line"><span class="ln">17</span><span class="cl">
+</span></span><span class="line hl"><span class="ln">18</span><span class="cl">    <span class="c1"># 設定を確認し追加</span>
+</span></span><span class="line hl"><span class="ln">19</span><span class="cl">    sed -i 『0,/^<span class="o">[[</span>:space:<span class="o">]]</span>*.*external-ui:/s<span class="p">|</span>^<span class="se">\(</span><span class="o">[[</span>:space:<span class="o">]]</span>*<span class="se">\)</span>.*external-ui:.*<span class="p">|</span><span class="se">\1</span>external-ui: ui<span class="p">|</span>』 「<span class="nv">$CONFIG_FILE</span>」
+</span></span><span class="line hl"><span class="ln">20</span><span class="cl">
+</span></span><span class="line hl"><span class="ln">21</span><span class="cl">    sed -i <span class="s2">&#34;0,/^[[:space:]]*.*external-controller:/s|^\([[:space:]]*\). *external-controller:.*|\1external-controller: 『0.0.0.0:9090』|「 」</span><span class="nv">$CONFIG_FILE</span><span class="s2">&#34;</span>
+</span></span><span class="line hl"><span class="ln">22</span><span class="cl">
+</span></span><span class="line hl"><span class="ln">23</span><span class="cl">
+</span></span><span class="line hl"><span class="ln">24</span><span class="cl">    <span class="k">if</span> grep -q 「^secret:」 「<span class="nv">$CONFIG_FILE</span>」<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line hl"><span class="ln">25</span><span class="cl">        <span class="c1"># 既存の secret を置き換え</span>
+</span></span><span class="line hl"><span class="ln">26</span><span class="cl">        sed -i <span class="s1">&#39;s/^secret:. */secret: 「mypasswd」/&#39;</span> 「<span class="nv">$CONFIG_FILE</span>」
+</span></span><span class="line hl"><span class="ln">27</span><span class="cl">    <span class="k">else</span>
+</span></span><span class="line hl"><span class="ln">28</span><span class="cl">        <span class="c1"># 存在しない場合は追加</span>
+</span></span><span class="line hl"><span class="ln">29</span><span class="cl">        <span class="nb">echo</span> 『secret: 「mypasswd」』 &gt;&gt; 「<span class="nv">$CONFIG_FILE</span>」
+</span></span><span class="line hl"><span class="ln">30</span><span class="cl">    <span class="k">fi</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">
+</span></span><span class="line"><span class="ln">32</span><span class="cl">    <span class="nb">echo</span> 「設定更新成功、Clash サービスを再起動中...」
+</span></span><span class="line"><span class="ln">33</span><span class="cl">    sudo systemctl restart clash
+</span></span><span class="line"><span class="ln">34</span><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">    <span class="nb">echo</span> 「ダウンロード失敗、旧設定を復元」
+</span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="k">fi</span></span></span></code></pre></div></p>
+
       </div>
     </section>
     <footer class="max-w-prose pt-8 print:hidden">
@@ -995,6 +1042,13 @@ https_proxy=&#34;http://127.0.0.1:7890&#34;
     
     
     <div class="place-self-center">
+      
+        <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+          著者
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Harry Wu
+        </div>
       
       
       <div class="text-2xl sm:text-lg">
@@ -1030,7 +1084,7 @@ https_proxy=&#34;http://127.0.0.1:7890&#34;
         <a
           class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
           style="will-change:transform;"
-          href="https://linkedin.com/in/username"
+          href="https://linkedin.com/in/harrywu0927"
           target="_blank"
           aria-label="Linkedin"
           rel="me noopener noreferrer"
@@ -1086,23 +1140,37 @@ https_proxy=&#34;http://127.0.0.1:7890&#34;
         <p class="text-sm text-neutral-500 dark:text-neutral-400">
             &copy;
             2025
-            
+            Harry Wu
         </p>
       
       
-      
-        <p class="text-xs text-neutral-500 dark:text-neutral-400">
-          
-          
-          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
-            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://github.com/jpanther/congo" target="_blank" rel="noopener noreferrer">Congo</a>
-        </p>
       
     </div>
     <div class="flex flex-row items-center">
       
       
       
+      
+        <div
+          class="me-14 cursor-pointer text-sm text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        >
+          <button id="appearance-switcher-0" type="button" aria-label="appearance switcher">
+            <div
+              class="flex h-12 w-12 items-center justify-center dark:hidden"
+              title="ダークモードへ切り替え"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+            </div>
+            <div
+              class="hidden h-12 w-12 items-center justify-center dark:flex"
+              title="ライトモードへ切り替え"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+            </div>
+          </button>
+        </div>
       
     </div>
   </div>

@@ -162,15 +162,14 @@ CONFIG_FILE="$CLASH_DIR/config.yaml"
 BACKUP_FILE="$CLASH_DIR/config.yaml.bak"
 TMP_FILE="$CLASH_DIR/config.tmp.yaml"
 
-cp "$CONFIG_FILE" "$BACKUP_FILE"
 echo "設定をダウンロード中..."
 if curl -fsSL "$SUB_URL" -o "$TMP_FILE"; then
+    cp "$CONFIG_FILE" "$BACKUP_FILE"
     mv "$TMP_FILE" "$CONFIG_FILE"
     echo "更新成功、Clash を再起動します..."
     systemctl restart clash
 else
     echo "ダウンロード失敗、旧設定を復元します"
-    mv "$BACKUP_FILE" "$CONFIG_FILE"
 fi
 ```
 
@@ -188,3 +187,70 @@ sudo crontab -e
 ```cron
 0 3 * * * /opt/clash/update-clash.sh >> /opt/clash/update.log 2>&1
 ```
+
+## Web UI の設定
+事前にビルドされた UI を直接取得し、現在のディレクトリ（/opt/clash/ui）に保存します:
+```bash
+git clone https://github.com/metacubex/metacubexd.git -b gh-pages ./ui
+```
+
+### config.yaml の編集
+`config.yaml` ファイルで、`external-ui` フィールドを編集します:
+```yaml
+external-controller: 127.0.0.1:9090 # ローカルネットワークへのアクセスを許可する場合は 0.0.0.0:9090 にバインド
+external-ui: ui
+secret: 「yourpassword」  # 任意のパスワードを設定可能
+```
+
+Clash を再起動：
+```bash
+sudo systemctl restart clash
+```
+
+ブラウザでアクセス：http://localhost:9090/ui/
+
+UI の更新を取得：
+```bash
+sudo git -C /opt/clash/ui pull -r
+```
+
+### 自動更新サブスクリプションスクリプトの更新
+サブスクリプションを更新するたびに現在の `config.yaml` が上書きされるため、`update-clash.sh` に以下のコードを追加する必要があります：
+{{< highlight bash "linenos=inline, hl_lines= 9-10 18-30" >}}
+#!/bin/bash
+
+CLASH_DIR="/opt/clash"
+SUB_URL="[あなたのサブスクリプションリンク]"
+CONFIG_FILE="$CLASH_DIR/config.yaml"
+BACKUP_FILE=「$CLASH_DIR/config.yaml.bak」
+TMP_FILE="$CLASH_DIR/config.tmp.yaml"
+
+# Web UI の更新を取得
+git -C /opt/clash/ui pull -r
+
+echo 「Clash 設定のサブスクリプションをダウンロード中...」
+if curl -fsSL 「$SUB_URL」 -o 「$TMP_FILE」; then
+    # バックアップを作成
+    cp 「$CONFIG_FILE」 「$BACKUP_FILE」
+    mv 「$TMP_FILE」 「$CONFIG_FILE」
+
+    # 設定を確認し追加
+    sed -i 『0,/^[[:space:]]*.*external-ui:/s|^\([[:space:]]*\).*external-ui:.*|\1external-ui: ui|』 「$CONFIG_FILE」
+
+    sed -i "0,/^[[:space:]]*.*external-controller:/s|^\([[:space:]]*\). *external-controller:.*|\1external-controller: 『0.0.0.0:9090』|「 」$CONFIG_FILE"
+
+
+    if grep -q 「^secret:」 「$CONFIG_FILE」; then
+        # 既存の secret を置き換え
+        sed -i 's/^secret:. */secret: 「mypasswd」/' 「$CONFIG_FILE」
+    else
+        # 存在しない場合は追加
+        echo 『secret: 「mypasswd」』 >> 「$CONFIG_FILE」
+    fi
+
+    echo 「設定更新成功、Clash サービスを再起動中...」
+    sudo systemctl restart clash
+else
+    echo 「ダウンロード失敗、旧設定を復元」
+fi
+{{< /highlight >}}

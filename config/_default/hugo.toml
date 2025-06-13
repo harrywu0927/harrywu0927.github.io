@@ -3,7 +3,7 @@
 # https://jpanther.github.io/congo/docs/getting-started/
 
 baseURL = "https://harrywu0927.github.io/"
-defaultContentLanguage = "en"
+defaultContentLanguage = "zh-Hans"
 defaultContentLanguageInSubdir = false
 
 enableRobotsTXT = true

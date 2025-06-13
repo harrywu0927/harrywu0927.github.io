@@ -182,16 +182,14 @@ CONFIG_FILE="$CLASH_DIR/config.yaml"
 BACKUP_FILE="$CLASH_DIR/config.yaml.bak"
 TMP_FILE="$CLASH_DIR/config.tmp.yaml"
 
-cp "$CONFIG_FILE" "$BACKUP_FILE"
-
 echo "下载 Clash 配置订阅中..."
 if curl -fsSL "$SUB_URL" -o "$TMP_FILE"; then
+    cp "$CONFIG_FILE" "$BACKUP_FILE"
     mv "$TMP_FILE" "$CONFIG_FILE"
     echo "配置更新成功，重新启动 Clash 服务..."
     systemctl restart clash
 else
     echo "下载失败，恢复旧配置"
-    mv "$BACKUP_FILE" "$CONFIG_FILE"
 fi
 ```
 赋予可执行权限
@@ -208,3 +206,74 @@ sudo crontab -e
 ```cron
 0 3 * * * /opt/clash/update-clash.sh >> /opt/clash/update.log 2>&1
 ```
+
+## 配置 Web UI
+直接拉取预构建的 UI, 保存在当前目录下(/opt/clash/ui):
+```bash
+git clone https://github.com/metacubex/metacubexd.git -b gh-pages ./ui
+```
+
+### 修改 config.yaml
+在 `config.yaml` 中，编辑字段 `external-ui`:
+```yaml
+external-controller: 127.0.0.1:9090 # 若开放局域网访问，绑定 0.0.0.0:9090
+external-ui: ui
+secret: "yourpassword"  # 可以自定义
+```
+
+重启 clash：
+```bash
+sudo systemctl restart clash
+```
+
+打开浏览器访问：http://localhost:9090/ui/
+
+拉取更新 UI：
+```bash
+sudo git -C /opt/clash/ui pull -r
+```
+
+### 更新自动更新订阅脚本
+因每次更新订阅时会覆盖当前的 `config.yaml`，因此需要在`update-clash.sh`中新增以下代码：
+{{< highlight bash "linenos=inline, hl_lines= 9-10 18-30" >}}
+#!/bin/bash
+
+CLASH_DIR="/opt/clash"
+SUB_URL="[你的订阅链接]"
+CONFIG_FILE="$CLASH_DIR/config.yaml"
+BACKUP_FILE="$CLASH_DIR/config.yaml.bak"
+TMP_FILE="$CLASH_DIR/config.tmp.yaml"
+
+# 拉取 Web UI 更新
+git -C /opt/clash/ui pull -r
+
+echo "下载 Clash 配置订阅中..."
+if curl -fsSL "$SUB_URL" -o "$TMP_FILE"; then
+    # 创建备份
+    cp "$CONFIG_FILE" "$BACKUP_FILE"
+    mv "$TMP_FILE" "$CONFIG_FILE"
+
+    # 检查并追加设置
+    sed -i '0,/^[[:space:]]*.*external-ui:/s|^\([[:space:]]*\).*external-ui:.*|\1external-ui: ui|' "$CONFIG_FILE"
+
+    sed -i "0,/^[[:space:]]*.*external-controller:/s|^\([[:space:]]*\).*external-controller:.*|\1external-controller: '0.0.0.0:9090'|" "$CONFIG_FILE"
+
+
+    if grep -q "^secret:" "$CONFIG_FILE"; then
+        # 替换原有 secret
+        sed -i 's/^secret:.*/secret: "mypasswd"/' "$CONFIG_FILE"
+    else
+        # 没有就添加
+        echo 'secret: "mypasswd"' >> "$CONFIG_FILE"
+    fi
+
+    echo "配置更新成功，重新启动 Clash 服务..."
+    sudo systemctl restart clash
+else
+    echo "下载失败，恢复旧配置"
+fi
+{{< /highlight >}}
+
+
+
+<!-- {{< profile align="center" >}} -->

@@ -3,7 +3,7 @@ languageName = "English"
 languageDirection = "ltr"
 weight = 1
 
-title = "Congo"
+title = "Haruru"
 # copyright = "Copy, _right?_ :thinking_face:"
 
 [params]
@@ -13,9 +13,9 @@ title = "Congo"
   # description = "My awesome website"
 
 [params.author]
-  # name = "Your name here"
+  name = "Harry Wu"
   # image = "img/author.jpg"
-  # headline = "I'm only human"
+  headline = "Full Stack Developer"
   # bio = "A little bit about you"
   links = [
   #   { email = "mailto:hello@your_domain.com" },
@@ -40,7 +40,7 @@ title = "Congo"
   #   { kickstarter = "https://www.kickstarter.com/profile/username" },
   #   { kofi = "https://ko-fi.com/username" },
   #   { lastfm = "https://lastfm.com/user/username" },
-    { linkedin = "https://linkedin.com/in/username" },
+    { linkedin = "https://linkedin.com/in/harrywu0927" },
   #   { mastodon = "https://mastodon.instance/@username" },
   #   { medium = "https://medium.com/username" },
   #   { mendeley = "https://www.mendeley.com/" },
